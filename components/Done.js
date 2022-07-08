@@ -1,0 +1,28 @@
+import React, { useContext } from "react";
+import { TouchableOpacity } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
+import GlobalContext from "../context/Context";
+import { useNavigation } from "@react-navigation/native";
+export default function Done(props) {
+  const { emoResolve } = props;
+  const {
+    theme: { colors },
+  } = useContext(GlobalContext);
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity
+      onPress={() => emoResolve()}
+      style={{
+        // position: "absolute",
+        borderRadius: 60,
+        width: 50,
+        height: 50,
+        backgroundColor: "#EADDCA",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <MaterialIcons name="done" size={30} color="black" />
+    </TouchableOpacity>
+  );
+}
