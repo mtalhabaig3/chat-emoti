@@ -82,11 +82,18 @@ export default function SignIn() {
             errorText={password.error}
             secureTextEntry
           />
-          <View style={{ marginTop: 20 }}>
+          <View
+            style={[
+              styles.form,
+              password.value && email.value
+                ? { backgroundColor: "maroon" }
+                : { backgroundColor: "#b5651d" },
+            ]}
+          >
             <Button
               title={mode === "signUp" ? "Sign Up" : "Sign in"}
               disabled={!password.value || !email.value}
-              color="maroon"
+              color="white"
               onPress={handlePress}
             />
           </View>
@@ -118,5 +125,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     justifyContent: "center",
     alignItems: "center",
+  },
+  form: {
+    marginTop: 20,
+    backgroundColor: "maroon",
+    borderRadius: 40,
+    width: 300,
   },
 });
