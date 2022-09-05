@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import SignIn from "./screens/SignIn";
+import SignUp from "./screens/Signup";
 import ContextWrapper from "./context/ContextWrapper";
 import Context from "./context/Context";
 import Profile from "./screens/Profile";
@@ -58,6 +59,7 @@ function App() {
       {!currUser ? (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="signIn" component={SignIn} />
+          <Stack.Screen name="signup" component={SignUp} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator
@@ -70,7 +72,7 @@ function App() {
             headerTintColor: colors.white,
           }}
         >
-          {(!currUser.displayName || !currUser.photoURL) && (
+          {!currUser.photoURL && (
             <Stack.Screen
               name="profile"
               component={Profile}

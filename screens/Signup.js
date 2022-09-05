@@ -5,16 +5,21 @@ import { TouchableOpacity } from "react-native";
 import Context from "../context/Context";
 import { emailValidator } from "../helpers/emailValidator";
 import { passwordValidator } from "../helpers/passwordValidator";
+import { nameValidator } from "../helpers/nameValidator";
+
 import { signIn, signUp } from "../firebase";
 
-export default function SignIn({ navigation }) {
+export default function SignUp({ navigation }) {
+  const [displayName, setDisplayName] = useState({ value: "", error: "" });
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
+
   const {
     theme: { colors },
   } = useContext(Context);
 
   async function handlePress() {
+    const displayNameError = nameValidator(displayName.value);
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
     if (emailError || passwordError) {
@@ -23,7 +28,8 @@ export default function SignIn({ navigation }) {
       return;
     }
     Keyboard.dismiss();
-    await signIn(email, password);
+
+    await signUp(email, password);
   }
   const image = { uri: "../assets/wallpaper_3.jpeg" };
   return (
@@ -53,7 +59,16 @@ export default function SignIn({ navigation }) {
           {" "}
           ChatEmoti
         </Text>
-        <View style={{ marginTop: 20, position: "absolute", bottom: 220 }}>
+        <View style={{ marginTop: 50, position: "absolute", bottom: 220 }}>
+          {/* <TextInput
+            label="Name"
+            returnKeyType="next"
+            value={displayName.value}
+            onChangeText={(text) => setDisplayName({ value: text, error: "" })}
+            error={!!displayName.error}
+            errorText={displayName.error}
+          /> */}
+
           <TextInput
             label="Email"
             returnKeyType="next"
@@ -84,8 +99,8 @@ export default function SignIn({ navigation }) {
             ]}
           >
             <Button
-              title="Login"
-              disabled={!password.value || !email.value}
+              title="Sign Up"
+              disabled={!password.value || !email.value || !displayName.value}
               color="white"
               onPress={handlePress}
             />
@@ -96,10 +111,10 @@ export default function SignIn({ navigation }) {
               justifyContent: "center",
               alignItems: "center",
             }}
-            onPress={() => navigation.navigate("signup")}
+            onPress={() => navigation.goBack()}
           >
             <Text style={{ color: "maroon" }}>
-              Don't have an account? Sign Up
+              Already have an account? Log in
             </Text>
           </TouchableOpacity>
         </View>
