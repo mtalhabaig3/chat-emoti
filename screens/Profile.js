@@ -73,14 +73,13 @@ export default function Profile() {
   }
   if (permissionStatus !== "granted") {
     // return <Text>You need to allow this permission</Text>;
-}
+  }
   return (
-
     <View
       style={{
         flex: 1,
-        justifyContent:'center',
-        alignContent:'center'
+        justifyContent: "center",
+        alignContent: "center",
       }}
     >
       <ImageBackground
