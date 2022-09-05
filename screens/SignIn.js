@@ -1,18 +1,15 @@
 import React, { useContext, useState } from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  StyleSheet,
-  TextInput,
-  Button,
-} from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Button } from "react-native";
+import TextInput from "../components/TextInput";
 import { TouchableOpacity } from "react-native";
 import Context from "../context/Context";
+import { emailValidator } from "../helpers/emailValidator";
+import { passwordValidator } from "../helpers/passwordValidator";
 import { signIn, signUp } from "../firebase";
+
 export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState({ value: "", error: "" });
+  const [password, setPassword] = useState({ value: "", error: "" });
   const [mode, setMode] = useState("signUp");
   const {
     theme: { colors },
@@ -20,6 +17,15 @@ export default function SignIn() {
 
   async function handlePress() {
     if (mode === "signUp") {
+      const emailError = emailValidator(email.value);
+      const passwordError = passwordValidator(password.value);
+      if (emailError || passwordError) {
+        setEmail({ ...email, error: emailError });
+        setPassword({ ...password, error: passwordError });
+        return;
+      }
+      Keyboard.dismiss();
+
       await signUp(email, password);
     }
     if (mode === "signIn") {
@@ -56,37 +62,40 @@ export default function SignIn() {
         </Text>
         <View style={{ marginTop: 20, position: "absolute", bottom: 250 }}>
           <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-            style={{
-              borderBottomColor: "maroon",
-              borderBottomWidth: 2,
-              width: 200,
-            }}
+            label="Email"
+            returnKeyType="next"
+            value={email.value}
+            onChangeText={(text) => setEmail({ value: text, error: "" })}
+            error={!!email.error}
+            errorText={email.error}
+            autoCapitalize="none"
+            autoCompleteType="email"
+            textContentType="emailAddress"
+            keyboardType="email-address"
           />
           <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={true}
-            style={{
-              borderBottomColor: "maroon",
-              borderBottomWidth: 2,
-              width: 200,
-              marginTop: 20,
-            }}
+            label="Password"
+            returnKeyType="done"
+            value={password.value}
+            onChangeText={(text) => setPassword({ value: text, error: "" })}
+            error={!!password.error}
+            errorText={password.error}
+            secureTextEntry
           />
           <View style={{ marginTop: 20 }}>
             <Button
               title={mode === "signUp" ? "Sign Up" : "Sign in"}
-              disabled={!password || !email}
+              disabled={!password.value || !email.value}
               color="maroon"
               onPress={handlePress}
             />
           </View>
           <TouchableOpacity
-            style={{ marginTop: 15 }}
+            style={{
+              marginTop: 15,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
             onPress={() =>
               mode === "signUp" ? setMode("signIn") : setMode("signUp")
             }
