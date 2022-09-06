@@ -1,5 +1,12 @@
 import React, { useContext, useState } from "react";
-import { View, Text, ImageBackground, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  ImageBackground,
+  StyleSheet,
+  Button,
+  Keyboard,
+} from "react-native";
 import TextInput from "../components/TextInput";
 import { TouchableOpacity } from "react-native";
 import Context from "../context/Context";
@@ -29,7 +36,7 @@ export default function SignUp({ navigation }) {
     }
     Keyboard.dismiss();
 
-    await signUp(email, password);
+    await signUp(email.value, password.value);
   }
   const image = { uri: "../assets/wallpaper_3.jpeg" };
   return (
@@ -100,7 +107,7 @@ export default function SignUp({ navigation }) {
           >
             <Button
               title="Sign Up"
-              disabled={!password.value || !email.value || !displayName.value}
+              disabled={!password.value || !email.value}
               color="white"
               onPress={handlePress}
             />
@@ -111,7 +118,7 @@ export default function SignUp({ navigation }) {
               justifyContent: "center",
               alignItems: "center",
             }}
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate("signIn")}
           >
             <Text style={{ color: "maroon" }}>
               Already have an account? Log in

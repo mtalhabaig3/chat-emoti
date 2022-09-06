@@ -1,5 +1,12 @@
 import React, { useContext, useState } from "react";
-import { View, Text, ImageBackground, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  ImageBackground,
+  StyleSheet,
+  Button,
+  Keyboard,
+} from "react-native";
 import TextInput from "../components/TextInput";
 import { TouchableOpacity } from "react-native";
 import Context from "../context/Context";
@@ -23,7 +30,7 @@ export default function SignIn({ navigation }) {
       return;
     }
     Keyboard.dismiss();
-    await signIn(email, password);
+    await signIn(email.value, password.value);
   }
   const image = { uri: "../assets/wallpaper_3.jpeg" };
   return (

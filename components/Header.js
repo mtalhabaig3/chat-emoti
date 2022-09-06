@@ -9,10 +9,13 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    fontSize: 21,
-    color: "#f72b2b",
-    fontWeight: "bold",
+    fontSize: 30,
+    color: "maroon",
+    marginBottom: 25,
+    // fontWeight: "bold",
     paddingVertical: 12,
-    marginTop: -5,
+    textAlign: "center",
+    fontStyle: "italic",
+    fontWeight: "600",
   },
 });

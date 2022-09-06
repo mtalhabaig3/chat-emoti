@@ -7,6 +7,7 @@ import { auth } from "./firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import Welcome from "./screens/Welcome";
 import SignIn from "./screens/SignIn";
 import SignUp from "./screens/Signup";
 import ContextWrapper from "./context/ContextWrapper";
@@ -26,6 +27,8 @@ LogBox.ignoreLogs([
   "Setting a timer",
   "AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. See https://github.com/react-native-async-storage/async-storage",
 ]);
+
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -57,7 +60,11 @@ function App() {
   return (
     <NavigationContainer>
       {!currUser ? (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName="Welcome"
+        >
+          <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="signIn" component={SignIn} />
           <Stack.Screen name="signup" component={SignUp} />
         </Stack.Navigator>
