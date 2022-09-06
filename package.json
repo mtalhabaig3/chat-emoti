@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@react-native-masked-view/masked-view": "^0.2.6",
     "@react-navigation/material-top-tabs": "^6.2.1",
     "@react-navigation/native": "^6.0.10",
@@ -32,6 +33,7 @@
     "react-native-paper": "^4.12.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
+    "react-native-status-bar-height": "^2.6.0",
     "react-native-tab-view": "^3.1.1",
     "react-native-web": "^0.17.1"
   },
