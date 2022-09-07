@@ -34,15 +34,16 @@ export default function Welcome({ navigation }) {
         <Text
           style={{
             color: "maroon",
-            fontSize: 38,
+            fontSize: 40,
             marginBottom: 20,
-            fontFamily: "Zapfino",
+            fontFamily: "Arial Rounded MT Bold",
+            fontWeight: "bold",
             position: "absolute",
             top: 150,
           }}
         >
           {" "}
-          ChatEmoti
+          CHAT EMOTI{" "}
         </Text>
         <View style={{ marginTop: 20, position: "absolute", bottom: 280 }}>
           <Header>MARHABA!</Header>

@@ -13,6 +13,7 @@ import Context from "../context/Context";
 import { emailValidator } from "../helpers/emailValidator";
 import { passwordValidator } from "../helpers/passwordValidator";
 import { nameValidator } from "../helpers/nameValidator";
+import Header from "../components/Header";
 
 import { signIn, signUp } from "../firebase";
 
@@ -56,17 +57,18 @@ export default function SignUp({ navigation }) {
         <Text
           style={{
             color: "maroon",
-            fontSize: 38,
+            fontSize: 40,
             marginBottom: 20,
-            fontFamily: "Zapfino",
+            fontFamily: "Arial Rounded MT Bold",
+
             position: "absolute",
             top: 150,
           }}
         >
           {" "}
-          ChatEmoti
+          CHAT EMOTI
         </Text>
-        <View style={{ marginTop: 50, position: "absolute", bottom: 220 }}>
+        <View style={{ marginTop: 50, position: "absolute", bottom: 180 }}>
           {/* <TextInput
             label="Name"
             returnKeyType="next"
@@ -75,6 +77,7 @@ export default function SignUp({ navigation }) {
             error={!!displayName.error}
             errorText={displayName.error}
           /> */}
+          <Header>SIGN UP!</Header>
 
           <TextInput
             label="Email"

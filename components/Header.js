@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     textAlign: "center",
     fontStyle: "italic",
+    fontFamily: "Arial Rounded MT Bold",
     fontWeight: "600",
   },
 });

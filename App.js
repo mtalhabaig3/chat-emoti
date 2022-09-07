@@ -22,7 +22,9 @@ import ChatHeader from "./components/ChatHeader";
 import { LogBox } from "react-native-web";
 import AccountInfo from "./screens/AccountInfo";
 import EmoResolve from "./screens/EmoResolve";
+import DateObject from "react-date-object";
 
+import Home from "./screens/Home";
 LogBox.ignoreLogs([
   "Setting a timer",
   "AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. See https://github.com/react-native-async-storage/async-storage",
@@ -78,6 +80,7 @@ function App() {
             },
             headerTintColor: colors.white,
           }}
+          initialRouteName="Home"
         >
           {!currUser.photoURL && (
             <Stack.Screen
@@ -89,7 +92,7 @@ function App() {
           <Stack.Screen
             name="home"
             options={{ headerShown: false }}
-            component={Home}
+            component={ChatsHome}
           />
           <Stack.Screen
             name="contacts"
@@ -113,15 +116,22 @@ function App() {
             options={{ title: "Your Emotion" }}
             component={EmoResolve}
           />
+
+          <Stack.Screen
+            name="Home"
+            options={{ title: "Your Emotion" }}
+            component={Home}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
   );
 }
-function Home() {
+function ChatsHome() {
   const {
     theme: { colors },
   } = useContext(Context);
+
   return (
     <>
       <View style={styles.container}>
