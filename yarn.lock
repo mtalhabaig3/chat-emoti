@@ -5344,6 +5344,18 @@
 "mkdirp@^1.0.3", "mkdirp@^1.0.4":
   "version" "1.0.4"
 
+"moment-hijri@^2.1.2":
+  "integrity" "sha512-p5ZOA1UzBHAAXiePh37XRjjwuyH78+1ShYZ7R6jogxketewG7kTCUjUmcP9c4Qsx8D8cqxwUWrESjtgdT6tNoA=="
+  "resolved" "https://registry.npmjs.org/moment-hijri/-/moment-hijri-2.1.2.tgz"
+  "version" "2.1.2"
+  dependencies:
+    "moment" "^2.24.0"
+
+"moment@^2.24.0":
+  "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
+  "version" "2.29.4"
+
 "ms@^2.0.0", "ms@^2.1.2":
   "version" "2.1.3"
 
@@ -6141,6 +6153,11 @@
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-native-clock-analog@^0.0.3":
+  "integrity" "sha512-XVTiYLy1IGBwaNBXZZcgIbeRyoQ/RZiYNLM7oUi9kifmKyN7HtUmxga6+lOvTlfmYGqjqX7tkIylGa/9YaYCOQ=="
+  "resolved" "https://registry.npmjs.org/react-native-clock-analog/-/react-native-clock-analog-0.0.3.tgz"
+  "version" "0.0.3"
 
 "react-native-codegen@^0.0.6":
   "integrity" "sha512-cMvrUelD81wiPitEPiwE/TCNscIVauXxmt4NTGcy18HrUd0WRWXfYzAQGXm0eI87u3NMudNhqFj2NISJenxQHg=="
