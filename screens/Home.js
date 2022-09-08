@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, SafeAreaView, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  ImageBackground,
+  ScrollView,
+} from "react-native";
 import AnalogClock from "react-native-clock-analog";
 import Block from "../components/Block";
 import Text from "../components/Text";
@@ -31,8 +37,9 @@ const Home = () => {
   let now = moment();
 
   return (
+    // <ScrollView>
     <SafeAreaView style={styles.container}>
-      <Block row style={styles.card}>
+      <Block row style={[styles.card, { alignItems: "center" }]}>
         <Block style={{ marginRight: 20 }} elevation={6}>
           <AnalogClock
             colorClock="#ffe4c4"
@@ -67,18 +74,37 @@ const Home = () => {
       </Block>
 
       <Block row style={[styles.card, { justifyContent: "flex-start" }]}>
-        <Block style={{ marginRight: 20 }} elevation={6}>
+        <Block row style={{ marginRight: 20 }} elevation={6}>
           <Text style={{ fontSize: 40, color: "white" }}>Ayat</Text>
-          <Text style={{ fontSize: 15, color: "white" }}>Of the Day</Text>
+          <Text
+            style={{
+              fontSize: 15,
+              color: "white",
+              marginTop: 20,
+              marginLeft: 5,
+            }}
+          >
+            Of the Day
+          </Text>
         </Block>
       </Block>
       <Block row style={[styles.card, { justifyContent: "flex-start" }]}>
-        <Block style={{ marginRight: 20 }} elevation={6}>
+        <Block row style={{ marginRight: 20 }} elevation={6}>
           <Text style={{ fontSize: 40, color: "white" }}>Hadith </Text>
-          <Text style={{ fontSize: 15, color: "white" }}>Of the Day</Text>
+          <Text
+            style={{
+              fontSize: 15,
+              color: "white",
+              marginTop: 20,
+              // marginLeft: 5,
+            }}
+          >
+            Of the Day
+          </Text>
         </Block>
       </Block>
     </SafeAreaView>
+    // </ScrollView>
   );
 };
 
@@ -86,7 +112,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   card: {
-    paddingVertical: 20,
+    padding: 20,
     backgroundColor: "rgba(220, 20, 60, 0.6)",
     shadowColor: "black",
     shadowOpacity: 5,
@@ -100,9 +126,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     width: "95%",
     padding: 8,
-    alignContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
+    // alignContent: "center",
+    // alignItems: "center",
+    // alignSelf: "center",
     marginTop: 20,
   },
   container: {
