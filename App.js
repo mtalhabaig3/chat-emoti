@@ -6,7 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Welcome from "./screens/Welcome";
 import SignIn from "./screens/SignIn";
 import SignUp from "./screens/Signup";
@@ -27,7 +27,7 @@ import Home from "./screens/Home";
 LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
-const Tab = createMaterialTopTabNavigator();
+const Tab = createBottomTabNavigator();
 
 function App() {
   const [currUser, setCurrUser] = useState(null);
@@ -78,13 +78,7 @@ function App() {
             },
             headerTintColor: colors.white,
           }}
-          initialRouteName="Home"
         >
-          <Stack.Screen
-            name="Home"
-            options={{ title: "Home" }}
-            component={Home}
-          />
           {!currUser.photoURL && (
             <Stack.Screen
               name="profile"
@@ -170,9 +164,10 @@ function ChatsHome() {
         }}
         initialRouteName="chats"
       >
-        <Tab.Screen name="accountInfo" component={AccountInfo} />
         <Tab.Screen name="photo" component={Photo} />
         <Tab.Screen name="chats" component={Chats} />
+        <Tab.Screen name="contacts" component={Contacts} />
+        <Tab.Screen name="Home" component={Home} />
       </Tab.Navigator>
     </>
   );

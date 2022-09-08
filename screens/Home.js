@@ -6,12 +6,19 @@ import {
   ImageBackground,
   ScrollView,
 } from "react-native";
+import AccountInfo from "./AccountInfo";
+import Photo from "./Photo";
+import Chats from "./Chats";
+import { Ionicons } from "@expo/vector-icons";
+import Contacts from "./Contacts";
+
 import AnalogClock from "react-native-clock-analog";
 import Block from "../components/Block";
 import Text from "../components/Text";
 import arabic from "react-date-object/calendars/arabic";
 import arabic_ar from "react-date-object/locales/arabic_ar";
 import DateObject from "react-date-object";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Home = () => {
   // var date = new DateObject({ calendar: arabic, locale: arabic_ar });
@@ -32,6 +39,8 @@ const Home = () => {
   var moment = require("moment-hijri");
   var islamicdate = moment().format("iYYYY/iM/iD");
   var date = moment().toDate();
+
+  const Tab = createBottomTabNavigator();
 
   const moment2 = require("moment");
   let now = moment();
@@ -169,6 +178,41 @@ const Home = () => {
           </Text>
         </Block>
       </Block>
+      <Tab.Navigator
+        screenOptions={({ route }) => {
+          return {
+            tabBarLabel: () => {
+              if (route.name === "photo") {
+                return <Ionicons name="camera" size={20} color="#EADDCA" />;
+              } else if (route.name === "accountInfo") {
+                return <Ionicons name="person" size={20} color="#EADDCA" />;
+              } else {
+                return (
+                  <Text style={{ color: "white" }}>
+                    {route.name.toLocaleUpperCase()}
+                  </Text>
+                );
+              }
+            },
+            tabBarShowIcon: true,
+            tabBarLabelStyle: {
+              color: "white",
+            },
+            tabBarIndicatorStyle: {
+              backgroundColor: "white",
+            },
+            tabBarStyle: {
+              backgroundColor: "maroon",
+            },
+          };
+        }}
+        initialRouteName="chats"
+      >
+        <Tab.Screen name="accountInfo" component={AccountInfo} />
+        <Tab.Screen name="photo" component={Photo} />
+        <Tab.Screen name="chats" component={Chats} />
+        <Tab.Screen name="contacts" component={Contacts} />
+      </Tab.Navigator>
     </SafeAreaView>
     // </ScrollView>
   );
