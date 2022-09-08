@@ -73,33 +73,99 @@ const Home = () => {
         </Block>
       </Block>
 
-      <Block row style={[styles.card, { justifyContent: "flex-start" }]}>
+      <Block style={styles.card}>
         <Block row style={{ marginRight: 20 }} elevation={6}>
           <Text style={{ fontSize: 40, color: "white" }}>Ayat</Text>
           <Text
             style={{
               fontSize: 15,
               color: "white",
-              marginTop: 20,
+              marginTop: 18,
               marginLeft: 5,
             }}
           >
             Of the Day
           </Text>
         </Block>
+        <Block>
+          <Text
+            style={{
+              fontSize: 17,
+              color: "white",
+              marginVertical: 8,
+              alignSelf: "flex-end",
+            }}
+          >
+            ٱلْحَمْدُ لِلَّهِ ٱلَّذِىٓ أَنزَلَ عَلَىٰ عَبْدِهِ ٱلْكِتَـٰبَ
+            وَلَمْ يَجْعَل لَّهُۥ عِوَجَاۜ
+          </Text>
+          <Text
+            style={{
+              fontSize: 17,
+              color: "white",
+              marginVertical: 8,
+            }}
+          >
+            "All praise is for Allah Who has revealed the Book to His servant,
+            allowing no crookedness in it."
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              color: "white",
+              marginVertical: 8,
+              alignSelf: "flex-end",
+            }}
+          >
+            Surah Kahaf 18:1
+          </Text>
+        </Block>
       </Block>
-      <Block row style={[styles.card, { justifyContent: "flex-start" }]}>
+      <Block style={styles.card}>
         <Block row style={{ marginRight: 20 }} elevation={6}>
-          <Text style={{ fontSize: 40, color: "white" }}>Hadith </Text>
+          <Text style={{ fontSize: 40, color: "white" }}>Hadith</Text>
           <Text
             style={{
               fontSize: 15,
               color: "white",
-              marginTop: 20,
-              // marginLeft: 5,
+              marginTop: 18,
+              marginLeft: 5,
             }}
           >
             Of the Day
+          </Text>
+        </Block>
+        <Block>
+          <Text
+            style={{
+              fontSize: 17,
+              color: "white",
+              marginVertical: 8,
+              alignSelf: "flex-end",
+            }}
+          >
+            "عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ : "خَيْرُكُمْ مَنْ
+            تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ
+          </Text>
+          <Text
+            style={{
+              fontSize: 17,
+              color: "white",
+              marginVertical: 8,
+            }}
+          >
+            "The Prophet (ﷺ) said, "The best among you (Muslims) are those who
+            learn the Qur'an and teach it.""
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              color: "white",
+              marginVertical: 8,
+              alignSelf: "flex-end",
+            }}
+          >
+            Sahih al-Bukhari 5027
           </Text>
         </Block>
       </Block>
@@ -113,7 +179,7 @@ export default Home;
 const styles = StyleSheet.create({
   card: {
     padding: 20,
-    backgroundColor: "rgba(220, 20, 60, 0.6)",
+    backgroundColor: "rgba(220, 20, 60, 0.5)",
     shadowColor: "black",
     shadowOpacity: 5,
     shadowRadius: 3,
@@ -125,16 +191,18 @@ const styles = StyleSheet.create({
     flex: 0.25,
     justifyContent: "flex-end",
     width: "95%",
-    padding: 8,
+    padding: 10,
     // alignContent: "center",
     // alignItems: "center",
     // alignSelf: "center",
     marginTop: 20,
+    flex: 0,
   },
   container: {
     flex: 1,
     alignItems: "center",
     // justifyContent: "center",
     padding: 10,
+    backgroundColor: "#D6A0A9",
   },
 });
