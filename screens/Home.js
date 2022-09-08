@@ -32,7 +32,6 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text></Text>
       <Block row style={styles.card}>
         <Block style={{ marginRight: 20 }} elevation={6}>
           <AnalogClock
@@ -66,6 +65,19 @@ const Home = () => {
           </Text>
         </Block>
       </Block>
+
+      <Block row style={[styles.card, { justifyContent: "flex-start" }]}>
+        <Block style={{ marginRight: 20 }} elevation={6}>
+          <Text style={{ fontSize: 40, color: "white" }}>Ayat</Text>
+          <Text style={{ fontSize: 15, color: "white" }}>Of the Day</Text>
+        </Block>
+      </Block>
+      <Block row style={[styles.card, { justifyContent: "flex-start" }]}>
+        <Block style={{ marginRight: 20 }} elevation={6}>
+          <Text style={{ fontSize: 40, color: "white" }}>Hadith </Text>
+          <Text style={{ fontSize: 15, color: "white" }}>Of the Day</Text>
+        </Block>
+      </Block>
     </SafeAreaView>
   );
 };
@@ -91,6 +103,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     alignSelf: "center",
+    marginTop: 20,
   },
   container: {
     flex: 1,

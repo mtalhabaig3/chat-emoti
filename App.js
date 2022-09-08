@@ -24,11 +24,6 @@ import AccountInfo from "./screens/AccountInfo";
 import EmoResolve from "./screens/EmoResolve";
 import Home from "./screens/Home";
 
-LogBox.ignoreLogs([
-  "Setting a timer",
-  "AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. See https://github.com/react-native-async-storage/async-storage",
-]);
-
 LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
@@ -41,6 +36,10 @@ function App() {
     theme: { colors },
   } = useContext(Context);
 
+  LogBox.ignoreLogs([
+    "Setting a timer",
+    "AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. See https://github.com/react-native-async-storage/async-storage",
+  ]);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setLoading(false);
