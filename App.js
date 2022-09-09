@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useAssets } from "expo-asset";
 import { onAuthStateChanged } from "firebase/auth";
@@ -92,11 +92,6 @@ function App() {
             component={ChatsHome}
           />
           <Stack.Screen
-            name="contacts"
-            options={{ title: "Select Contacts" }}
-            component={Contacts}
-          />
-          <Stack.Screen
             name="chat"
             component={Chat}
             options={{ headerShown: false }}
@@ -113,12 +108,17 @@ function App() {
             options={{ title: "Your Emotion" }}
             component={EmoResolve}
           />
+          <Stack.Screen
+            name="AccountInfo"
+            options={{ title: "Account" }}
+            component={AccountInfo}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
   );
 }
-function ChatsHome() {
+function ChatsHome({ navigation }) {
   const {
     theme: { colors },
   } = useContext(Context);
@@ -126,13 +126,16 @@ function ChatsHome() {
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.profileOptions}>
-          <TouchableOpacity style={styles.profile}>
-            <View>
-              <Text style={styles.text}>CHAT EMOTI</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.text}>CHAT EMOTI</Text>
+        <TouchableOpacity
+          style={{ position: "absolute", top: 45, right: 20 }}
+          onPress={() => navigation.navigate(AccountInfo)}
+        >
+          <Image
+            source={{ uri: auth.currentUser.photoURL }}
+            style={styles.avatar}
+          />
+        </TouchableOpacity>
       </View>
       <Tab.Navigator
         screenOptions={{
@@ -234,16 +237,26 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingBottom: 10,
     height: 100,
-    alignContent: "center",
+    flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+    // borderBottomRightRadius: 30,
+    // borderBottomLeftRadius: 30,
+    // position:'absolute'
   },
   text: {
     paddingTop: 8,
     fontSize: 22,
     color: "#EADDCA",
     fontFamily: "Arial Rounded MT Bold",
+    alignSelf: "center",
+
     // fontStyle: "italic",
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 40 / 2,
+    alignSelf: "center",
   },
 });
 
