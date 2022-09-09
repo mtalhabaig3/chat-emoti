@@ -13,7 +13,7 @@ export default function Contacts() {
   const image = route.params && route.params.image;
   return (
     <FlatList
-      style={{ flex: 1, padding: 10 }}
+      style={{ flex: 1, padding: 10, backgroundColor: "#EADDCA" }}
       data={contacts}
       keyExtractor={(_, i) => i}
       renderItem={({ item }) => <ContactPreview contact={item} image={image} />}

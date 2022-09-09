@@ -57,7 +57,6 @@ export default function Chats() {
           user={getUserB(room.userB, contacts)}
         />
       ))}
-      <ContactsFloatingIcon />
     </View>
   );
 }

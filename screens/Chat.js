@@ -125,7 +125,7 @@ export default function Chat() {
   );
 
   const handleNavigate = () => {
-    navigation.navigate("home");
+    navigation.goBack();
   };
 
   const EmoResolve = () => {

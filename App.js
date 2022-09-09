@@ -15,7 +15,7 @@ import Context from "./context/Context";
 import Profile from "./screens/Profile";
 import Chats from "./screens/Chats";
 import Photo from "./screens/Photo";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 import Contacts from "./screens/Contacts";
 import Chat from "./screens/Chat";
 import ChatHeader from "./components/ChatHeader";
@@ -129,45 +129,82 @@ function ChatsHome() {
         <View style={styles.profileOptions}>
           <TouchableOpacity style={styles.profile}>
             <View>
-              <Text style={styles.text}>ChatEmoti</Text>
+              <Text style={styles.text}>CHAT EMOTI</Text>
             </View>
           </TouchableOpacity>
         </View>
       </View>
       <Tab.Navigator
-        screenOptions={({ route }) => {
-          return {
-            tabBarLabel: () => {
-              if (route.name === "photo") {
-                return <Ionicons name="camera" size={20} color="#EADDCA" />;
-              } else if (route.name === "accountInfo") {
-                return <Ionicons name="person" size={20} color="#EADDCA" />;
-              } else {
-                return (
-                  <Text style={{ color: colors.white }}>
-                    {route.name.toLocaleUpperCase()}
-                  </Text>
-                );
-              }
-            },
-            tabBarShowIcon: true,
-            tabBarLabelStyle: {
-              color: colors.white,
-            },
-            tabBarIndicatorStyle: {
-              backgroundColor: colors.white,
-            },
-            tabBarStyle: {
-              backgroundColor: "maroon",
-            },
-          };
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: "maroon",
+            borderTopRightRadius: 40,
+            borderTopLeftRadius: 40,
+            position: "absolute",
+          },
+          // tabBarShowLabel: false,
+          tabBarActiveTintColor: "maroon",
+          tabBarInactiveTintColor: "#ffe4c4",
+          tabBarActiveBackgroundColor: "#ffe4c4",
+          tabBarInactiveBackgroundColor: "maroon",
+          tabBarLabelStyle: {
+            fontSize: 15,
+            marginBottom: 10,
+            paddingBottom: 20,
+          },
+          tabBarItemStyle: {
+            height: 80,
+            borderTopRightRadius: 36,
+            borderTopLeftRadius: 36,
+            marginBottom: 10,
+          },
         }}
-        initialRouteName="chats"
+        initialRouteName="Home"
       >
-        <Tab.Screen name="photo" component={Photo} />
-        <Tab.Screen name="chats" component={Chats} />
-        <Tab.Screen name="contacts" component={Contacts} />
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen
+          name="Home"
+          component={Home}
+          options={{
+            tabBarIcon: ({ color }) => {
+              return <Ionicons name="home" size={25} color={color} />;
+            },
+          }}
+        />
+        <Tab.Screen
+          name="chats"
+          component={Chats}
+          options={{
+            tabBarBadge: 2,
+            tabBarIcon: ({ color }) => {
+              return <Entypo name="chat" size={24} color={color} />;
+            },
+          }}
+        />
+        <Tab.Screen
+          name="photo"
+          component={Photo}
+          options={{
+            tabBarIcon: ({ color }) => {
+              return <Ionicons name="camera" size={25} color={color} />;
+            },
+          }}
+        />
+        <Tab.Screen
+          name="contacts"
+          component={Contacts}
+          options={{
+            tabBarIcon: ({ color }) => {
+              return (
+                <MaterialCommunityIcons
+                  name="contacts"
+                  size={24}
+                  color={color}
+                />
+              );
+            },
+          }}
+        />
       </Tab.Navigator>
     </>
   );
@@ -205,7 +242,7 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     fontSize: 22,
     color: "#EADDCA",
-    fontFamily: "Zapfino",
+    fontFamily: "Arial Rounded MT Bold",
     // fontStyle: "italic",
   },
 });
