@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   onlineStatus: {
     color: "white",
-    fontSize: 18,
+    fontSize: 15,
     color: "#EADDCA",
   },
   options: {

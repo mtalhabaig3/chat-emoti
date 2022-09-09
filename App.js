@@ -160,6 +160,7 @@ function ChatsHome({ navigation }) {
             height: 80,
             borderTopRightRadius: 36,
             borderTopLeftRadius: 36,
+
             marginBottom: 10,
           },
         }}
