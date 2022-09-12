@@ -32,7 +32,6 @@ export default function Chats() {
 
   function getUserB(user, contacts) {
     const userContact = contacts.find((c) => c.email === user.email);
-    console.log(userContact);
     if (userContact && userContact.contactName) {
       return { ...user, contactName: userContact.contactName };
     }

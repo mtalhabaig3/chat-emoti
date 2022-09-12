@@ -21,6 +21,7 @@ import Chat from "./screens/Chat";
 import ChatHeader from "./components/ChatHeader";
 import { LogBox } from "react-native-web";
 import AccountInfo from "./screens/AccountInfo";
+import UserBAccount from "./screens/UserBAccount";
 import EmoResolve from "./screens/EmoResolve";
 import Home from "./screens/Home";
 
@@ -110,8 +111,13 @@ function App() {
           />
           <Stack.Screen
             name="AccountInfo"
-            options={{ title: "Account" }}
+            options={{ headerShown: false }}
             component={AccountInfo}
+          />
+          <Stack.Screen
+            name="UserBAccount"
+            options={{ headerShown: false }}
+            component={UserBAccount}
           />
         </Stack.Navigator>
       )}

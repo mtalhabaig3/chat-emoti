@@ -78,6 +78,7 @@ const AccountInfo = ({ navigation }) => {
         <TouchableRipple style={styles.btn} onPress={SignOut}>
           <Text style={styles.btnTxt}>Log Out</Text>
         </TouchableRipple>
+        <BackButton goBack={() => navigation.goBack()} />
       </SafeAreaView>
     </>
   );
@@ -88,6 +89,7 @@ export default AccountInfo;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#EADDCA",
   },
   userInfoSection: {
     paddingHorizontal: 30,
@@ -132,7 +134,7 @@ const styles = StyleSheet.create({
     width: 270,
     backgroundColor: "maroon",
     borderRadius: 80,
-    marginLeft: 65,
+    marginLeft: 75,
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",

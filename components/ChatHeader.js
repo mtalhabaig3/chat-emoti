@@ -32,18 +32,28 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Icon from "@expo/vector-icons/FontAwesome";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 import Avatar from "./Avatar";
+import UserBAccount from "../screens/UserBAccount";
 
 export default function ChatHeader(props) {
+  const navigation = useNavigation();
   const route = useRoute();
+  var userb = route.params.user;
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={props.onPress}>
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}
+      >
         <Icon name="angle-left" size={30} color={"white"} />
       </TouchableOpacity>
       <View style={styles.profileOptions}>
-        <TouchableOpacity style={styles.profile}>
+        <TouchableOpacity
+          style={styles.profile}
+          onPress={() => navigation.navigate("UserBAccount", { userb })}
+        >
           <View>
             <Avatar size={40} user={route.params.user} />
           </View>
