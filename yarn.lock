@@ -3512,6 +3512,13 @@
   "resolved" "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.2.0.tgz"
   "version" "1.2.0"
 
+"expo-ui-kit@^0.1.6":
+  "integrity" "sha512-v2l1VVMtp+SwUObwz1Nm3s3mTtDtAIkt2hcZv11tQKSCDLwnKIcgoiaMJqQ8neowh5QTd/SR0SBFuFFd/ekeNQ=="
+  "resolved" "https://registry.npmjs.org/expo-ui-kit/-/expo-ui-kit-0.1.6.tgz"
+  "version" "0.1.6"
+  dependencies:
+    "react-native" "*"
+
 "expo@*", "expo@~44.0.0":
   "integrity" "sha512-iHnra6uD5kXZgdSUrvxZ3sLjg1FtgtA4p4uaSKVQ39IaMHJBngo8RKqFUJ+BF2kPDpBLJ251eLlhgYUlnAyuag=="
   "resolved" "https://registry.npmjs.org/expo/-/expo-44.0.6.tgz"
