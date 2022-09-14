@@ -14,6 +14,7 @@ import { emailValidator } from "../helpers/emailValidator";
 import { passwordValidator } from "../helpers/passwordValidator";
 import { nameValidator } from "../helpers/nameValidator";
 import Header from "../components/Header";
+import Logo from "../components/Logo";
 
 import { signIn, signUp } from "../firebase";
 
@@ -43,33 +44,35 @@ export default function SignUp({ navigation }) {
   return (
     <View
       style={{
-        // justifyContent: "center",
-        // alignItems: "center",
+        justifyContent: "center",
+        justifyContent: "center",
+        alignItems: "center",
         flex: 1,
-        // backgroundColor: "#EADDCA",
+        backgroundColor: "#EADDCA",
       }}
     >
-      <ImageBackground
+      {/* <ImageBackground
         source={require("../assets/maybe.jpeg")}
         style={styles.image}
         // blurRadius={2}
-      >
+      > */}
+      <View style={{ position: "absolute", top: 80, left: 90 }}>
         <Text
           style={{
             color: "maroon",
             fontSize: 40,
             marginBottom: 20,
             fontFamily: "Arial Rounded MT Bold",
-
-            position: "absolute",
-            top: 150,
+            fontWeight: "bold",
           }}
         >
           {" "}
-          CHAT EMOTI
+          CHAT EMOTI{" "}
         </Text>
-        <View style={{ marginTop: 50, position: "absolute", bottom: 180 }}>
-          {/* <TextInput
+        <Logo />
+      </View>
+      <View style={{ marginTop: 50, position: "absolute", bottom: 180 }}>
+        {/* <TextInput
             label="Name"
             returnKeyType="next"
             value={displayName.value}
@@ -77,58 +80,58 @@ export default function SignUp({ navigation }) {
             error={!!displayName.error}
             errorText={displayName.error}
           /> */}
-          <Header>SIGN UP!</Header>
+        <Header>SIGN UP!</Header>
 
-          <TextInput
-            label="Email"
-            returnKeyType="next"
-            value={email.value}
-            onChangeText={(text) => setEmail({ value: text, error: "" })}
-            error={!!email.error}
-            errorText={email.error}
-            autoCapitalize="none"
-            autoCompleteType="email"
-            textContentType="emailAddress"
-            keyboardType="email-address"
+        <TextInput
+          label="Email"
+          returnKeyType="next"
+          value={email.value}
+          onChangeText={(text) => setEmail({ value: text, error: "" })}
+          error={!!email.error}
+          errorText={email.error}
+          autoCapitalize="none"
+          autoCompleteType="email"
+          textContentType="emailAddress"
+          keyboardType="email-address"
+        />
+        <TextInput
+          label="Password"
+          returnKeyType="done"
+          value={password.value}
+          onChangeText={(text) => setPassword({ value: text, error: "" })}
+          error={!!password.error}
+          errorText={password.error}
+          secureTextEntry
+        />
+        <View
+          style={[
+            styles.form,
+            password.value && email.value
+              ? { backgroundColor: "maroon" }
+              : { backgroundColor: "#b5651d" },
+          ]}
+        >
+          <Button
+            title="Sign Up"
+            disabled={!password.value || !email.value}
+            color="white"
+            onPress={handlePress}
           />
-          <TextInput
-            label="Password"
-            returnKeyType="done"
-            value={password.value}
-            onChangeText={(text) => setPassword({ value: text, error: "" })}
-            error={!!password.error}
-            errorText={password.error}
-            secureTextEntry
-          />
-          <View
-            style={[
-              styles.form,
-              password.value && email.value
-                ? { backgroundColor: "maroon" }
-                : { backgroundColor: "#b5651d" },
-            ]}
-          >
-            <Button
-              title="Sign Up"
-              disabled={!password.value || !email.value}
-              color="white"
-              onPress={handlePress}
-            />
-          </View>
-          <TouchableOpacity
-            style={{
-              marginTop: 15,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            onPress={() => navigation.navigate("signIn")}
-          >
-            <Text style={{ color: "maroon" }}>
-              Already have an account? Log in
-            </Text>
-          </TouchableOpacity>
         </View>
-      </ImageBackground>
+        <TouchableOpacity
+          style={{
+            marginTop: 15,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onPress={() => navigation.navigate("signIn")}
+        >
+          <Text style={{ color: "maroon" }}>
+            Already have an account? Log in
+          </Text>
+        </TouchableOpacity>
+      </View>
+      {/* </ImageBackground> */}
     </View>
   );
 }

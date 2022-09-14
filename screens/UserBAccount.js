@@ -52,13 +52,13 @@ const UserBAccount = ({ navigation }) => {
               size={20}
             />
             <Text style={{ color: "#777777", marginLeft: 20 }}>
-              Tokyo, Japan
+              Peshawar, Pakistan
             </Text>
           </View>
           <View style={styles.row}>
             <MaterialCommunityIcons name="phone" color="maroon" size={20} />
             <Text style={{ color: "#777777", marginLeft: 20 }}>
-              +92-1234567890
+              +92-1234567891
             </Text>
           </View>
           <View style={styles.row}>
@@ -69,12 +69,6 @@ const UserBAccount = ({ navigation }) => {
           </View>
         </View>
 
-        <TouchableRipple onPress={() => {}}>
-          <View style={styles.menuItem}>
-            <Ionicons name="settings-outline" color="maroon" size={25} />
-            <Text style={styles.menuItemText}>Settings</Text>
-          </View>
-        </TouchableRipple>
         <TouchableRipple
           style={styles.btn}
           onPress={() => console.log("blocked!")}
@@ -142,7 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    bottom: 250,
+    bottom: 400,
   },
   btnTxt: {
     color: "white",
