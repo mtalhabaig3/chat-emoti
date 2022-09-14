@@ -9,6 +9,7 @@ import {
   Animated,
   Image,
 } from "react-native";
+import Logo from "../components/Logo";
 import TextInput from "../components/TextInput";
 import { TouchableOpacity } from "react-native";
 import Context from "../context/Context";
@@ -176,20 +177,21 @@ export default function Welcome({ navigation }) {
         style={styles.image}
         // blurRadius={2}
       > */}
-      <Text
-        style={{
-          color: "maroon",
-          fontSize: 40,
-          marginBottom: 20,
-          fontFamily: "Arial Rounded MT Bold",
-          fontWeight: "bold",
-          position: "absolute",
-          top: 130,
-        }}
-      >
-        {" "}
-        CHAT EMOTI{" "}
-      </Text>
+      <View style={{ position: "absolute", top: 80, left: 90 }}>
+        <Text
+          style={{
+            color: "maroon",
+            fontSize: 40,
+            marginBottom: 20,
+            fontFamily: "Arial Rounded MT Bold",
+            fontWeight: "bold",
+          }}
+        >
+          {" "}
+          CHAT EMOTI{" "}
+        </Text>
+        <Logo />
+      </View>
       <Block safe>
         <Block center middle>
           {renderImages()}
