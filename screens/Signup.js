@@ -66,8 +66,7 @@ export default function SignUp({ navigation }) {
             fontWeight: "bold",
           }}
         >
-          {" "}
-          CHAT EMOTI{" "}
+          CHAT e MOTI
         </Text>
         <Logo />
       </View>

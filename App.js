@@ -185,7 +185,7 @@ function ChatsHome({ navigation }) {
           name="chats"
           component={Chats}
           options={{
-            tabBarBadge: 2,
+            tabBarBadge: 1,
             tabBarIcon: ({ color }) => {
               return <Entypo name="chat" size={24} color={color} />;
             },

@@ -24,9 +24,9 @@ import { theme } from "../constants";
 const { SIZES, COLORS } = theme;
 
 const background = {
-  welcome: require("../assets/welcome.png"),
-  encrypted: require("../assets/emotionBrain2.png"),
-  privacy: require("../assets/emotionColor.png"),
+  welcome: require("../assets/welcome3.png"),
+  encrypted: require("../assets/emotion-brain3.png"),
+  privacy: require("../assets/emotion-color4.png"),
 };
 
 const backgrounds = [
@@ -177,7 +177,7 @@ export default function Welcome({ navigation }) {
         style={styles.image}
         // blurRadius={2}
       > */}
-      <View style={{ position: "absolute", top: 80, left: 90 }}>
+      <View style={{ position: "absolute", top: 70, left: 90 }}>
         <Text
           style={{
             color: "maroon",
@@ -187,8 +187,7 @@ export default function Welcome({ navigation }) {
             fontWeight: "bold",
           }}
         >
-          {" "}
-          CHAT EMOTI{" "}
+          CHAT e MOTI
         </Text>
         <Logo />
       </View>
