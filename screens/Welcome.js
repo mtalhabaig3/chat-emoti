@@ -32,7 +32,7 @@ const backgrounds = [
   {
     title: "Do you know?",
     description:
-      "There are basic 8 different types of emotions i.e. Joy, Sadness, Fear, Disgust, Surprise, Anticipation, Anger and Trust.",
+      "There are basic 8 different types of emotions. Joy, Sadness, Fear, Disgust, Surprise, Anticipation, Anger and Trust.",
     img: background.welcome,
   },
   {
@@ -42,7 +42,7 @@ const backgrounds = [
     img: background.encrypted,
   },
   {
-    title: "Colors Influence How You Feel.",
+    title: "Colors Influence How You Feel!",
     description:
       "Different colors can stir up certain emotions because of what we associate with these hues from nature.",
     img: background.privacy,
@@ -55,11 +55,12 @@ export default function Welcome({ navigation }) {
 
   const [slideIndex, setSlideIndex] = useState(0);
 
-  useEffect(() => {
-    scrollX.addListener(({ value }) => {
-      setSlideIndex(Math.floor(value / SIZES.width));
-    });
-  }, []);
+  // useEffect(() => {
+  //   scrollX.addListener(({ value }) => {
+  //     setSlideIndex(Math.floor(value / SIZES.width));
+  //   });
+  //   console.log(slideIndex);
+  // }, []);
 
   function renderImages() {
     return (
@@ -71,10 +72,14 @@ export default function Welcome({ navigation }) {
         scrollEventThrottle={16}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          { useNativeDriver: false }
-        )}
+        onScroll={
+          (scrollX.addListener(({ value }) => {
+            setSlideIndex(Math.floor(value / SIZES.width));
+          }),
+          Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
+            useNativeDriver: false,
+          }))
+        }
       >
         {backgrounds.map((item, index) => (
           <Block
@@ -99,6 +104,7 @@ export default function Welcome({ navigation }) {
 
   function renderDots() {
     const dotPosition = Animated.divide(scrollX, SIZES.width);
+    console.log(dotPosition);
 
     return (
       <Block
@@ -136,10 +142,17 @@ export default function Welcome({ navigation }) {
 
     return (
       <React.Fragment>
-        <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 18,
+            marginBottom: 20,
+            color: "maroon",
+          }}
+        >
           {background && background.title}
         </Text>
-        <Text style={{ fontSize: 16 }}>
+        <Text style={{ fontSize: 14.3, padding: 10 }}>
           {background && background.description}
         </Text>
       </React.Fragment>
@@ -184,7 +197,7 @@ export default function Welcome({ navigation }) {
           {renderTexts()}
         </Block>
       </Block>
-      <View style={{ marginTop: 20, position: "absolute", bottom: 180 }}>
+      <View style={{ marginTop: 20, position: "absolute", bottom: 205 }}>
         <Header>MARHABA!</Header>
         <Button
           mode="contained"
