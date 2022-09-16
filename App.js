@@ -167,7 +167,7 @@ function ChatsHome({ navigation }) {
             borderTopRightRadius: 36,
             borderTopLeftRadius: 36,
 
-            marginBottom: 10,
+            marginTop: 10,
           },
         }}
         initialRouteName="Home"

@@ -105,7 +105,6 @@ export default function Welcome({ navigation }) {
 
   function renderDots() {
     const dotPosition = Animated.divide(scrollX, SIZES.width);
-    console.log(dotPosition);
 
     return (
       <Block

@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 10 + getStatusBarHeight(),
     left: 4,
-    backgroundColor: "white",
+    // backgroundColor: "white",
     borderRadius: 12,
   },
   image: {
-    width: 24,
+    width: 30,
     height: 24,
   },
 });

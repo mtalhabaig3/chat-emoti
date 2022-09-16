@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { auth, db } from "../firebase";
 import GlobalContext from "../context/Context";
 import Done from "../components/Done";
@@ -248,7 +248,7 @@ export default function Chat() {
               }}
               onPressActionButton={handlePhotoPicker}
               icon={() => (
-                <Ionicons name="image" size={30} color={colors.iconGray} />
+                <Ionicons name="add" size={30} color={colors.iconGray} />
               )}
             />
           </>
@@ -259,13 +259,14 @@ export default function Chat() {
           return (
             <TouchableOpacity
               style={{
-                height: 40,
-                width: 40,
+                height: 35,
+                width: 35,
                 borderRadius: 40,
                 backgroundColor: "maroon",
                 alignItems: "center",
                 justifyContent: "center",
-                marginBottom: 5,
+                marginBottom: 7,
+                marginRight: 5,
               }}
               onPress={() => {
                 if (text && onSend) {
@@ -280,7 +281,7 @@ export default function Chat() {
                 }
               }}
             >
-              <Ionicons name="send" size={20} color={colors.white} />
+              <AntDesign name="arrowup" size={22} color={colors.white} />
             </TouchableOpacity>
           );
         }}
