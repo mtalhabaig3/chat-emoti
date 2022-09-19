@@ -25,8 +25,8 @@ const { SIZES, COLORS } = theme;
 
 const background = {
   welcome: require("../assets/welcome3.png"),
-  encrypted: require("../assets/emotion-brain3.png"),
-  privacy: require("../assets/emotion-color4.png"),
+  encrypted: require("../assets/emotion-science.png"),
+  privacy: require("../assets/emotion-brain3.png"),
 };
 
 const backgrounds = [
