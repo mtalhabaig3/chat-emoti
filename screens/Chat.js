@@ -147,7 +147,7 @@ export default function Chat() {
     });
     console.log(msgString);
     if (msgString !== "khali") {
-      fetch("http://192.168.18.29:4000/add", {
+      fetch("http://192.168.18.56:4000/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

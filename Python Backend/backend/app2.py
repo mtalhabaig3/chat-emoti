@@ -17,4 +17,4 @@ def add_data():
 
 
 if __name__ == "__main__":
-    app.run(host='192.168.18.29', port=4000, debug=True)
+    app.run(host='192.168.18.56', port=4000, debug=True)

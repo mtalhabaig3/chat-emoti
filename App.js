@@ -240,7 +240,7 @@ function Main() {
 const styles = StyleSheet.create({
   container: {
     // backgroundColor: "#075e54",
-    backgroundColor: "brown",
+    backgroundColor: "maroon",
     paddingTop: 40,
     paddingBottom: 10,
     height: 100,
