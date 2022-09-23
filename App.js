@@ -222,10 +222,9 @@ function ChatsHome({ navigation }) {
 
 function Main() {
   const [assets] = useAssets(
-    require("./assets/icon-square.png"),
     require("./assets/chatbg.png"),
     require("./assets/user-icon.png"),
-    require("./assets/welcome-img.png")
+    require("./assets/welcome3.png")
   );
   if (!assets) {
     return <Text>Loading ..</Text>;

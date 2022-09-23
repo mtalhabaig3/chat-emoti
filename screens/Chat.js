@@ -128,9 +128,9 @@ export default function Chat() {
     navigation.goBack();
   };
 
-  const EmoResolve = () => {
-    onSnapshot(roomMessagesRef, (querySnapshot) => {
-      querySnapshot
+ const EmoResolve = async () => {
+   onSnapshot(roomMessagesRef, (querySnapshot) => {
+     querySnapshot
         .docChanges()
         .filter(({ type }) => type === "added")
         .map(({ doc }) => {
@@ -206,11 +206,9 @@ export default function Chat() {
   }
 
   return (
-    <ImageBackground
-      resizeMode="cover"
-      source={require("../assets/chatback2.jpeg")}
-      style={{ flex: 1 }}
-    >
+    
+    <View style={{backgroundColor:'#EADDCA', flex:1}}>
+    
       <ChatHeader
         Done={<Done emoResolve={EmoResolve} />}
         onPress={handleNavigate}
@@ -301,13 +299,13 @@ export default function Chat() {
         renderBubble={(props) => (
           <Bubble
             {...props}
-            textStyle={{ left: { color: "black" }, right: { color: "white" } }}
+            textStyle={{ left: { color: "white" }, right: { color: "black" } }}
             wrapperStyle={{
               right: {
                 backgroundColor: "#C4A484",
               },
               left: {
-                backgroundColor: "#EADDCA",
+                backgroundColor:  "#800000",
               },
             }}
           />
@@ -345,6 +343,7 @@ export default function Chat() {
           );
         }}
       />
-    </ImageBackground>
+    {/* // </ImageBackground> */}
+    </View>
   );
 }

@@ -80,12 +80,13 @@ export default function Profile() {
         flex: 1,
         justifyContent: "center",
         alignContent: "center",
+        backgroundColor:"#EADDCA"
       }}
     >
-      <ImageBackground
+      {/* <ImageBackground
         source={require("../assets/maybe2.jpeg")}
         style={styles.image}
-      >
+      > */}
         <Text
           style={{
             fontSize: 28,
@@ -146,7 +147,7 @@ export default function Profile() {
             disabled={!displayName}
           />
         </View>
-      </ImageBackground>
+      {/* </ImageBackground> */}
     </View>
   );
 }

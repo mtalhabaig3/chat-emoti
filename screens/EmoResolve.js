@@ -1,6 +1,7 @@
 import { useRoute } from "@react-navigation/native";
+// import { styles } from "expo-ui-kit";
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 export default function EmoResolve(props) {
   const route = useRoute();
@@ -43,8 +44,12 @@ export default function EmoResolve(props) {
         justifyContent: "center",
         alignItems: "center",
         flex: 1,
+        backgroundColor:'#EADDCA'
       }}
     >
+      {/* {labels[emotion] === 'admired' ? <Image source={'../assets/Duas/Admiration.jpg'} style={styles.image}/> : null} */}
+        
+      
       <Text style={{ fontSize: 22, padding: 10 }}>
         After having seen your conversation, today you are
       </Text>
@@ -61,3 +66,10 @@ export default function EmoResolve(props) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+  },
+});
+

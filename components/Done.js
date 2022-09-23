@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import GlobalContext from "../context/Context";
 import { useNavigation } from "@react-navigation/native";
@@ -22,7 +22,7 @@ export default function Done(props) {
         justifyContent: "center",
       }}
     >
-      <MaterialIcons name="done" size={30} color="black" />
+      <Image source={require('../assets/logo3.png')} style={{width:35, height:35}}/>
     </TouchableOpacity>
   );
 }
