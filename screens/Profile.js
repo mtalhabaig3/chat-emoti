@@ -58,7 +58,7 @@ export default function Profile() {
       updateProfile(user, userData),
       setDoc(doc(db, "users", user.uid), { ...userData, uid: user.uid }),
     ]);
-    navigation.navigate("home");
+    navigation.navigate("chathome");
   }
 
   async function handleProfilePicture() {
