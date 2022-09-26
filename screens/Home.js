@@ -5,6 +5,7 @@ import {
   View,
   ImageBackground,
   ScrollView,
+  Platform
 } from "react-native";
 import AccountInfo from "./AccountInfo";
 import Photo from "./Photo";
@@ -49,7 +50,7 @@ const Home = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Block row style={[styles.card, { alignItems: "center" }]}>
-          <Block elevation={6}>
+          <Block elevation={6} >
             <AnalogClock
               colorClock="#ffe4c4"
               colorNumber="maroon"
@@ -57,7 +58,8 @@ const Home = () => {
               colorHour="black"
               colorMinutes="#8b4513"
               autostart={true}
-              size={140}
+              size={Platform.OS == 'ios' ? 140 : 90}
+              style={{marginLeft:Platform.OS == 'android' ? 30 : 0}}
               showSeconds
             />
           </Block>

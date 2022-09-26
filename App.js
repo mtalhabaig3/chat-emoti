@@ -106,7 +106,7 @@ function App() {
 
           <Stack.Screen
             name="emoResolve"
-            options={{ title: "Your Emotion" }}
+            options={{ title: "Your Emotion", headerShown:false }}
             component={EmoResolve}
           />
           <Stack.Screen
@@ -132,7 +132,7 @@ function ChatsHome({ navigation }) {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.text}>CHAT EMOTI</Text>
+        <Text style={styles.text}>CHAT e EMOTI</Text>
         <TouchableOpacity
           style={{ position: "absolute", top: 45, right: 20 }}
           onPress={() => navigation.navigate(AccountInfo)}
@@ -159,8 +159,8 @@ function ChatsHome({ navigation }) {
           tabBarInactiveBackgroundColor: "maroon",
           tabBarLabelStyle: {
             fontSize: 15,
-            marginBottom: 10,
-            paddingBottom: 20,
+            marginBottom:Platform.OS == 'android' ? 35 : 20,
+            paddingBottom: 5,
           },
           tabBarItemStyle: {
             height: 80,

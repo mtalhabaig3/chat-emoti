@@ -1,9 +1,10 @@
 import { useRoute } from "@react-navigation/native";
 // import { styles } from "expo-ui-kit";
 import React, { Component } from "react";
+import BackButton from "../components/BackButton";
 import { View, Text, Image, StyleSheet } from "react-native";
 
-export default function EmoResolve(props) {
+export default function EmoResolve({navigation}) {
   const route = useRoute();
   let emotion = route.params.result;
   const labels = {
@@ -47,10 +48,10 @@ export default function EmoResolve(props) {
         backgroundColor:'#EADDCA'
       }}
     >
-      {/* {labels[emotion] === 'admired' ? <Image source={'../assets/Duas/Admiration.jpg'} style={styles.image}/> : null} */}
+      {labels[emotion] === "admired! 👏" ? <Image source={require('../assets/Duas/Admiration.jpg')} style={styles.image}/> : null}
         
       
-      <Text style={{ fontSize: 22, padding: 10 }}>
+      {/* <Text style={{ fontSize: 22, padding: 10 }}>
         After having seen your conversation, today you are
       </Text>
       <Text
@@ -62,7 +63,9 @@ export default function EmoResolve(props) {
         }}
       >
         {labels[emotion]}
-      </Text>
+      </Text> */}
+                    <BackButton goBack={() => navigation.goBack()} />
+
     </View>
   );
 }
@@ -70,6 +73,8 @@ export default function EmoResolve(props) {
 const styles = StyleSheet.create({
   image: {
     flex: 1,
-  },
+    width:'100%',
+    height:'100%',
+  resizeMode:'stretch'  },
 });
 
