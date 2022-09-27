@@ -68,8 +68,10 @@ export default function ChatHeader(props) {
           <TouchableOpacity style={{ paddingHorizontal: 5 }}>
             {props.Done}
           </TouchableOpacity>
-          <TouchableOpacity style={{ paddingHorizontal: 10 }}>
-            <Icon name="ellipsis-v" size={30} color="#EADDCA" />
+        </View>
+        <View style={styles.options}>
+          <TouchableOpacity style={{ paddingHorizontal: 5 }}>
+            {props.Done2}
           </TouchableOpacity>
         </View>
       </View>

@@ -48,9 +48,9 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{flex:1}}>
         <Block row style={[styles.card, { alignItems: "center" }]}>
-          <Block elevation={6} >
+          <Block elevation={6} style={{marginBottom:Platform.OS == 'android' ? 20 : 50, marginRight: 20, paddingTop:30}}>
             <AnalogClock
               colorClock="#ffe4c4"
               colorNumber="maroon"
@@ -59,7 +59,6 @@ const Home = () => {
               colorMinutes="#8b4513"
               autostart={true}
               size={Platform.OS == 'ios' ? 140 : 90}
-              style={{marginLeft:Platform.OS == 'android' ? 30 : 0}}
               showSeconds
             />
           </Block>
@@ -69,8 +68,9 @@ const Home = () => {
               {islamicdate.slice(7)}
             </Text>
             <Text style={{ color: "white", fontSize: 30, textAlign: "center" }}>
-              {months[islamicdate[5]]}, {islamicdate.slice(0, 4)} Hijri
+              {months[islamicdate[5]]}
             </Text>
+            <Text style={{ color: "white", fontSize: 30, textAlign: "center" }}>{islamicdate.slice(0, 4)} Hijri</Text>
             <Text
               style={{
                 color: "white",

@@ -14,6 +14,8 @@ import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { auth, db } from "../firebase";
 import GlobalContext from "../context/Context";
 import Done from "../components/Done";
+import Done2 from "../components/Done2";
+
 import {
   addDoc,
   collection,
@@ -128,7 +130,7 @@ export default function Chat() {
     navigation.goBack();
   };
 
- const EmoResolve = async () => {
+ const EmoResolve = async (arg = 'aUser') => {
    onSnapshot(roomMessagesRef, (querySnapshot) => {
      querySnapshot
         .docChanges()
@@ -137,17 +139,27 @@ export default function Chat() {
           const message = doc.data();
           let example = new Date();
           const time = parseInt(example.getTime() / 1000);
+          if (arg == 'bUser') {
+            if (message.user.name != currentUser.displayName) {
+              if (time - message.createdAt.seconds < 3200) {
+                const totalmsgs = message.text;
+                msgString += totalmsgs + " ";
+              }
+            }
+          }
+          else{
           if (message.user.name === currentUser.displayName) {
             if (time - message.createdAt.seconds < 3200) {
               const totalmsgs = message.text;
               msgString += totalmsgs + " ";
             }
           }
+        }
         });
     });
     console.log(msgString);
     if (msgString !== "khali") {
-      fetch("http://192.168.1.110:4000/add", {
+      fetch("http://192.168.18.56:4000/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -158,7 +170,7 @@ export default function Chat() {
         .then((data) => {
           // result += data;
           console.log(data);
-          navigation.navigate("emoResolve", { result: data["label"] });
+          navigation.navigate("emoResolve", { result: data["label"], user:arg });
         });
     }
 
@@ -211,6 +223,7 @@ export default function Chat() {
     
       <ChatHeader
         Done={<Done emoResolve={EmoResolve} />}
+        Done2={<Done2 emoResolve={EmoResolve} />}
         onPress={handleNavigate}
         onlineStatus="online"
       />

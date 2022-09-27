@@ -7,6 +7,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 export default function EmoResolve({navigation}) {
   const route = useRoute();
   let emotion = route.params.result;
+  var user = route.params.user
   const labels = {
     admiration: "admired! 👏",
     amusement: "amused! 😂",
@@ -48,12 +49,14 @@ export default function EmoResolve({navigation}) {
         backgroundColor:'#EADDCA'
       }}
     >
-      {labels[emotion] === "admired! 👏" ? <Image source={require('../assets/Duas/Admiration.jpg')} style={styles.image}/> : null}
+      {/* {labels[emotion] === "admired! 👏" ? <Image source={require('../assets/Duas/Admiration.jpg')} style={styles.image}/> : null} */}
         
-      
-      {/* <Text style={{ fontSize: 22, padding: 10 }}>
+      { user === 'aUser' ? <Text style={{ fontSize: 22, padding: 10 }}>
         After having seen your conversation, today you are
+      </Text> : <Text style={{ fontSize: 22, padding: 10 }}>
+        After having seen your friend's conversation, today he is
       </Text>
+      }
       <Text
         style={{
           fontWeight: "bold",
@@ -63,7 +66,7 @@ export default function EmoResolve({navigation}) {
         }}
       >
         {labels[emotion]}
-      </Text> */}
+      </Text>
                     <BackButton goBack={() => navigation.goBack()} />
 
     </View>
