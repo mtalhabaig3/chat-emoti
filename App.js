@@ -24,6 +24,7 @@ import AccountInfo from "./screens/AccountInfo";
 import UserBAccount from "./screens/UserBAccount";
 import EmoResolve from "./screens/EmoResolve";
 import Home from "./screens/Home";
+import Logo from "./components/Logo";
 
 LogBox.ignoreAllLogs();
 
@@ -106,7 +107,7 @@ function App() {
 
           <Stack.Screen
             name="emoResolve"
-            options={{ title: "Your Emotion", headerShown:false }}
+            options={{ title: "Your Emotion", headerShown: false }}
             component={EmoResolve}
           />
           <Stack.Screen
@@ -132,7 +133,8 @@ function ChatsHome({ navigation }) {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.text}>CHAT e EMOTI</Text>
+        <Image source={require("./assets/App_logo.png")} style={styles.image} />
+        <Text style={styles.text}>CHAT EMOTI</Text>
         <TouchableOpacity
           style={{ position: "absolute", top: 45, right: 20 }}
           onPress={() => navigation.navigate(AccountInfo)}
@@ -159,7 +161,7 @@ function ChatsHome({ navigation }) {
           tabBarInactiveBackgroundColor: "maroon",
           tabBarLabelStyle: {
             fontSize: 15,
-            marginBottom:Platform.OS == 'android' ? 35 : 20,
+            marginBottom: Platform.OS == "android" ? 35 : 20,
             paddingBottom: 5,
           },
           tabBarItemStyle: {
@@ -263,6 +265,12 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 40 / 2,
     alignSelf: "center",
+  },
+  image: {
+    width: 50,
+    height: 40,
+    alignSelf: "center",
+    marginRight: 5,
   },
 });
 
