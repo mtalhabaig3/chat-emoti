@@ -17,12 +17,15 @@ export default function Done(props) {
         borderRadius: 60,
         width: 50,
         height: 50,
-        backgroundColor: "#EADDCA",
+        // backgroundColor: "#EADDCA",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <Image source={require('../assets/logo3.png')} style={{width:35, height:35}}/>
+      <Image
+        source={require("../assets/myEmotion.png")}
+        style={{ width: 35, height: 35 }}
+      />
     </TouchableOpacity>
   );
 }
