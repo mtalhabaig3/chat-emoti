@@ -11,18 +11,21 @@ export default function Done2(props) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => emoResolve('bUser')}
+      onPress={() => emoResolve("bUser")}
       style={{
         // position: "absolute",
         borderRadius: 60,
         width: 50,
         height: 50,
-        backgroundColor: "#EADDCA",
+        // backgroundColor: "#EADDCA",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <Image source={require('../assets/logo3.png')} style={{width:35, height:35}}/>
+      <Image
+        source={require("../assets/userEmotion.png")}
+        style={{ width: 35, height: 35 }}
+      />
     </TouchableOpacity>
   );
 }
